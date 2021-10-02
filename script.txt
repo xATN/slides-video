@@ -1,0 +1,101 @@
+1. Alien Basics
+   * Teaser
+       - Greetings
+       - I can see your dilema already
+       - You're sitting down tow write a Perl module
+       - And you have some external dependencies
+       - Maybe it's a C library
+       - It could be a rust crate
+       - Possibly some old Fortran library
+       - It could even be something new and shiney written in Go
+       - Either way you need this thing to install from CPAN for your users
+       - Without causing them any trouble
+       - You want the dependencies to just work
+       - What are you going to do?
+       - I'll tell you what you are going to do,
+       - You are going to use some Alien Technology Now
+       - *TAG*
+   * Define Alien
+       - [slides]
+   * Why Alien?
+       - [slides]
+   * Alien Flowchart
+       - [slides]
+   * Alien Dependency
+       - [slides]
+   * Demo: create Alien::libarchive
+
+       * We're going to start by installing libffi and libarchive.
+       * These can be installed as Aliens without the system packages,
+       * But this will make the later steps faster.
+
+       - sudo apt-get update && sudo apt-get install libffi-dev libarchive-dev
+
+       * Next we're going to install Task::AlienDev, which will include
+       * The Alien::Build framework, and a number of development tools
+       * For creating Aliens.
+
+       - cpanm -n Task::AlienDev
+
+       * I recommend using Dist::Zilla for Alien development.
+       * The Alien Dist::Zilla plugins handle a number of tricky edge cases
+       * And will help you avoid some pitfalls.
+       * If you prefer, Dist::Zilla is not required for Alien development.
+       * For this demo we will be using it however,
+       * First lets set up Dist::ZIlla
+
+       - dzil setup
+
+       * Now that we are setup, we can mint a brand new Alien dist using the dzil new command.
+
+       - dzil new -P AlienBuild Alien::libarchive
+
+       * This will prompt for the URL to the tarball of the alienized package
+       + http://libarchive.org/downloads/libarchive-3.5.2.tar.gz
+       * The minting plugin will download the tarball from the internet and use it to guess a number of settings
+       * We're going to mostly use the defaults.
+       
+       - cd Alien-libarchive
+
+       * Now lets take a look at what has been created for us.
+
+       - ls
+
+       * The main Perl module doesn't contain any of its own code.
+       * All of the heavy lifting is done in the base class Alien::Base.
+
+       - less lib/Alien/libarchive.pm
+
+       * The other generated file that is interesting is the alienfile.
+       * This is a recipe for how to probe or install the alienized package.
+       * For a well behaved autoconf or cmake project you may not have to make any changes at all.
+
+       - less alienfile
+
+       * Now lets test our newly minted dist.
+
+       - dzil test
+
+       * As you can see the Alien was able to find the system libarchive
+       * And the test script displayed the compiler and linker flags
+       * We want to also make sure that it works as a share install
+       * So we can use the environment variable ALIEN_INSTALL_TYPE to force a share install.
+
+       - env ALIEN_INSTALL_TYPE=share dzil test
+
+       * This takes a bit longer since we have to build from source,
+       * But when complete,
+       * We can see the test script display the compiler and linker flags
+       * This time using the share location.
+   * Conclusion
+       - Next time we will cover how you can use your
+       - Shiny new Alien.
+       - Now you are an expert on Perl's Alien Technology
+       - Tell me what Aliens are you going to write and contribute to CPAN
+       - Please let us know by commenting in the section below
+       - If you have any questions about Perl's Awesome Alien Technology
+       - Please join us on pound native channel on irc.perl.org
+       - If something goes wrong,
+       - Don't panic,
+       - Just open a ticket on our GitHub
+       - Until next time, I will see you later.
