@@ -45,6 +45,386 @@
 </section>
 
 
+<section data-auto-animate data-auto-animate-id="define-ffi">
+  <h2>Define FFI</h2>
+
+  <ul>
+    <li><em>FFI</em>: a <strong>Foreign Function Interface</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>The term FFI stands for Foreign Function Interface</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="define-ffi">
+  <h2>Define FFI</h2>
+
+  <ul>
+    <li><em>FFI</em>: a <strong>Foreign Function Interface</strong></li>
+    <li>One language calling another<ul></ul></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Which literally means the ability for one programming language to call functions in another programming language</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="define-ffi">
+  <h2>Define FFI</h2>
+
+  <ul>
+    <li><em>FFI</em>: a <strong>Foreign Function Interface</strong></li>
+    <li>One language calling another
+      <ul style="font-size: 70%">
+        <li>eg. call Rust from Perl</li>
+        <li>or call Fortran from C</li>
+        <li>or call x from y</li>
+      </ul>
+    </li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>That is Rust could call Perl</li>
+      <li>Or Fortran could call C</li>
+      <li>Or anything could call anything else</li>
+    </ul>
+  </aside>
+</section>
+
+<section data-auto-animate data-auto-animate-id="define-ffi">
+  <h2>Define FFI</h2>
+
+  <ul>
+    <li><em>FFI</em>: a <strong>Foreign Function Interface</strong></li>
+    <li>One language calling another
+      <ul style="font-size: 70%">
+        <li>eg. call Rust from Perl</li>
+        <li>or call Fortran from C</li>
+        <li>or call x from y</li>
+      </ul>
+    </li>
+    <li><em>FFI</em> allows calling a dynamic library</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>In practice, the term FFI is typically used to mean calling a function in a dynamic library without glue code and the compiler and linker that requires</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="define-xs">
+  <h2>Define XS</h2>
+
+  <ul>
+    <li><em>XS</em> exposes the Perl internals</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>In the Perl world, FFI contrasts with XS, which provides a more complicated interface to the guts of Perl, which incidentally allows you to call C</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="define-xs">
+  <h2>Define XS</h2>
+
+  <ul>
+    <li><em>XS</em> exposes the Perl internals</li>
+    <li><em>XS</em> incidentally allows calling C</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>If you look past the guts of Perl that XS exposes you could think of XS as an FFI that allows Perl to call C</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <aside class="notes">
+    <ul>
+      <li>Why use FFI instead of XS?</li>
+      <li>XS has been around a long time and lots of useful bindings have been written with it.</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <img src="images/XS-diagram.png">
+
+  <aside class="notes">
+    <ul>
+      <li>For one thing, XS is overly complicated</li>
+      <li>Unlike Pure Perl, you can't run an XS module without compiling and linking some glue code,</li>
+      <li>This is usually done at build time for a module</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <img src="images/FFI-diagram.png">
+
+  <aside class="notes">
+    <ul>
+      <li>FFI in contrast does not require any glue code,</li>
+      <li>Compiler,</li>
+      <li>Or linker</li>
+      <li>And no special steps at install time</li>
+      <li>In this respect, FFI bindings share some characteristics and benfits of Pure Perl code</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is not tied to <strong>C</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Aficionados of XS will tell you with a stright face that XS is easier because FFI cannot understand the complexities of the C programming language</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is not tied to <strong>C</strong></li>
+    <li><em>FFI</em> is calling <strong>Rust</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>But this is 2021 and you might want to use a memory safe language like Rust</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is not tied to <strong>C</strong></li>
+    <li><em>FFI</em> is calling <strong>Rust</strong></li>
+    <li><em>FFI</em> is calling <strong>Go</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Or some shiny Go code</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is not tied to <strong>C</strong></li>
+    <li><em>FFI</em> is calling <strong>Rust</strong></li>
+    <li><em>FFI</em> is calling <strong>Go</strong></li>
+    <li><em>FFI</em> is calling <strong>Fortran</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>You may even want to leverage some scientific code from the 70s</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is not tied to <strong>C</strong></li>
+    <li><em>FFI</em> is calling <strong>Rust</strong></li>
+    <li><em>FFI</em> is calling <strong>Go</strong></li>
+    <li><em>FFI</em> is calling <strong>Fortran</strong></li>
+    <li><em>FFI</em> is calling <strong>dynamic libraries</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Basically you can call any compiled language that can produce dynamic libraries</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li>FIXME: animation of XS POD</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Aficionados of XS will probably not mention just how much reading you will have to do to learn XS</li>
+      <li>Basically XS is easier for them because they have mucking about in the guts of Perl for decades</li>
+      <li>That kind of knowledge is useful for working on the internals of Perl</li>
+      <li>But thinking that is the best way to write bindings is a barrier to entry</li>
+      <li>Which is the last thing Perl needs in these days</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <img src="images/More-portable-Ruby.png">
+
+  <aside class="notes">
+    <ul>
+      <li>FFI is common in other languages</li>
+      <li>The C implementation of Ruby for example has an equivalent to XS</li>
+      <li>But it is rarely used in the Ruby world,</li>
+      <li>Because Ruby has many different implementations,</li>
+      <li>Each implements the same FFI style interface,</li>
+      <li>Meaning developers writing bindings need to do it just once in FFI,<li>
+      <li>And get the benefit of those bindings on all versions of Ruby</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <img src="images/More-portable-Perl.png">
+
+  <aside class="notes">
+    <ul>
+      <li>This is sort of out there, but Perl could do the same thing</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why">
+  <h2>Why?</h2>
+
+  <ul>
+    <li><em>FFI</em> is more easily <strong>transferrable</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>TODO</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="why-xs">
+  <h2>Why XS?</h2>
+
+  <aside class="notes">
+    <ul>
+      <li>Gosh should we just get rid of XS?</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="why-xs">
+  <h2>Why XS?</h2>
+
+  <ul>
+    <li><em>XS</em> is great for <strong>extending the syntax</strong> of Perl</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Gosh should we just get rid of XS?</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="demo">
+
+  <h2>Demo</h2>
+
+  <aside class="notes">
+    <ul>
+      <li>Now lets do some show and tell</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="demo">
+
+  <h2>Demo</h2>
+
+  <ul>
+    <li>Let's Write <strong>Archive::Libarchive</strong></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>We will write some bindings to the BSD libarchive library</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="demo">
+
+  <h2>Demo</h2>
+
+  <ul>
+    <li>Let's Write <strong>Archive::Libarchive</strong></li>
+    <li>Using <em>FFI::Platypus</em></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Using FFI::Platypus</li>
+    </ul>
+  </aside>
+
+</section>
+
+
 			</div>
 		</div>
 

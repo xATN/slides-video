@@ -1,6 +1,9 @@
 2. FFI Basics
    * Teaser
-   * Define FFI
-   * Why FFI
+   * Slides
+     - Define FFI
+     - Define XS
+     - Why
+     - Why XS
    * Demo: create Libarchive.pm able to list content of an archive
    * Conclusion
