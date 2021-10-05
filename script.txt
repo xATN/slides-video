@@ -37,16 +37,23 @@
 
        - cpanm -n Task::AlienDev
 
-       * I recommend using Dist::Zilla for Alien development.
-       * The Alien Dist::Zilla plugins handle a number of tricky edge cases
-       * And will help you avoid some pitfalls.
-       * If you prefer, Dist::Zilla is not required for Alien development.
-       * For this demo we will be using it however,
-       * First lets set up Dist::ZIlla
+       * It takes a little time, but
+       * Our development environment is now ready
 
-       - dzil setup
+       ## CUT ##
 
-       * Now that we are setup, we can mint a brand new Alien dist using the dzil new command.
+       * I realize it is contraversial, but I am going to recommend using Dist::Zilla
+       * For Alien development.
+
+       * This is because the Alien Dist::Zilla plugins handle a number of tricky edge cases
+       * And will help you avoid common pitfalls.
+
+       * You can create Aliens without Dist::Zilla and that is supported by
+       * The Alien::Build framework
+       * But for simplicity, I am going to use dzil in this demo.
+
+       * We can mint a brand new Alien dist using the dzil new command,
+       * And the AlienBuild minting profile.
 
        - dzil new -P AlienBuild Alien::libarchive
 
@@ -115,9 +122,10 @@
        * But when complete,
        * We can see the test script display the compiler and linker flags
        * This time using the share location.
+
+       * Next time we will cover how you can use your
+       * Shiny new Alien.
    * Conclusion
-       - Next time we will cover how you can use your
-       - Shiny new Alien.
        - Now you are an expert on Perl's Alien Technology
        - Tell me what Aliens are you going to write and contribute to CPAN
        - Please let us know by commenting in the section below
