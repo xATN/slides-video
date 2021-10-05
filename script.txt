@@ -27,7 +27,7 @@
 
        * We're going to start by installing libffi and libarchive.
        * These can be installed as Aliens without the system packages,
-       * But this will make the later steps faster.
+       * But this will speed things up.
 
        - sudo apt-get update && sudo apt-get install libffi-dev libarchive-dev
 
@@ -78,6 +78,34 @@
 
        * As you can see the Alien was able to find the system libarchive
        * And the test script displayed the compiler and linker flags
+       * We will need a more complete test to ensure that the Alien works with both XS and FFI
+
+       my $xs = <<EOF;
+       #include "EXTERN.h"
+       #include "perl.h"
+       #include "XSUB.h"
+       #include <archive.h>
+
+       MODULE = main PACKAGE = main
+
+       const char *
+       archive_version_string()
+       EOF
+
+       xs_ok $xs, with_subtest {
+         my $version = archive_version_string();
+         ok $version;
+         note $version;
+       };
+
+       ffi_ok { symbols => ['archive_version_string'] }, with_subtest {
+         my($ffi) = @_;
+         my $get_version = $ffi->function( archive_version_string => [] => 'string' );
+         my $version = $get_version->();
+         ok $version;
+         note $version;
+       };
+
        * We want to also make sure that it works as a share install
        * So we can use the environment variable ALIEN_INSTALL_TYPE to force a share install.
 
