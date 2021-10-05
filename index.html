@@ -424,6 +424,146 @@
 
 </section>
 
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+  <ul>
+    <li><em>libarchive</em> is the FreeBSD tar implementation</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>libarchive is the FreeBSD tar implementation,</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+  <ul>
+    <li><em>libarchive</em> is the FreeBSD tar implementation</li>
+    <li>As a library, used by many operating systems</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>As a library, used by many operating systems, including Windows and Linux</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+  <ul>
+    <li><em>libarchive</em> is the FreeBSD tar implementation</li>
+    <li>As a library, used by many operating systems</li>
+    <li><em>libarchive</em> is the <strong>gold</strong> standard for <em>FFI</em> friendliness</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>libarchive is also the gold standard for FFI friendliness,</li>
+      <li>Since it does not expose its internal data structures.</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+  <ul>
+    <li><em>libarchive</em> is the FreeBSD tar implementation</li>
+    <li>As a library, used by many operating systems</li>
+    <li><em>libarchive</em> is the <strong>gold</strong> standard for <em>FFI</em> friendliness</li>
+    <li><em>libarchive</em> is object oriented</li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>libarchive is also object oriented,</li>
+      <li>Even though it is written in C,</li>
+      <li>Let me show you how.</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+<pre><code data-trim data-noescape>
+/* Archive struct, an abstract class */
+struct archive;
+
+/* Archive read, concrete class for reading archives */
+struct archive *archive_read_new(void);
+int archive_read_open_filename(struct archive *,
+                 const char *_filename, size_t _block_size);
+int archive_read_free(struct archive *);
+</code></pre>
+
+
+  <aside class="notes">
+    <ul>
+      <ul><li>fixme</li>
+    </ul>
+  </aside>
+
+</section>
+
+<section data-auto-animate data-auto-animate-id="libarchive">
+
+  <h2>libarchive</h2>
+
+<pre><code data-trim data-noescape>
+/* Archive Entry struct, an entry class */
+struct archive_entry;
+
+struct archive_entry *archive_entry_new(void);
+const char *archive_entry_pathname(struct archive_entry *);
+void archive_entry_set_pathname(struct archive_entry *,
+                  const char *);
+void archive_entry_free(struct archive_entry *);
+</code></pre>
+
+
+  <aside class="notes">
+    <ul>
+      <ul><li>fixme</li>
+    </ul>
+  </aside>
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-id="demo">
+
+  <h2>Demo</h2>
+
+  <ul>
+    <li>Let's Write <strong>Archive::Libarchive</strong></li>
+    <li>Using <em>FFI::Platypus</em></li>
+  </ul>
+
+  <aside class="notes">
+    <ul>
+      <li>Okay lets do the demo!</li>
+    </ul>
+  </aside>
+
+</section>
+
+
 
 			</div>
 		</div>

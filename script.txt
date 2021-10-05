@@ -3,7 +3,9 @@
    * Slides
      - Define FFI
      - Define XS
-     - Why
+     - Why > missing XS pod display
      - Why XS
+     - Demo intro
+     - libarchive basics > missing
    * Demo: create Libarchive.pm able to list content of an archive
    * Conclusion
